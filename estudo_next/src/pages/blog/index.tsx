@@ -2,17 +2,21 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Blog() {
+type Props = {
+  name: string;
+};
+
+export default function Blog({ name }: Props) {
   return (
     <>
-      <h1>Home do blog</h1>
-      <Image src="" alt="" />
-      <ul>
-        <li>
-          {/* teste */}
-          <Link href="/blog/sobre" />
-        </li>
-      </ul>
+      <h1>blog</h1>
+      <span>O usuário que está acessando é o :{name}</span>
     </>
   );
+}
+
+export function getStaticProps() {
+  return {
+    props: { name: "Guilherme" },
+  };
 }
